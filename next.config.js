@@ -4,6 +4,9 @@ const nextConfig = {
         domains: [
             "avatars.githubusercontent.com"
         ]
+    },
+    experimental: {
+        appDir: true
     }
 }
 

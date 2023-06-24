@@ -9,7 +9,7 @@ export default function ProfileIcon() {
     if (status === 'authenticated') {
         return (
             <div className="flex gap-4">
-                <Image className="rounded-full" src={session?.user?.image} width={40} height={50} />
+                <Image className="rounded-full" src={session?.user?.image} width={40} height={50} alt="pepole" />
                 <Button onClick={() => signOut()}>Sign Out</Button>
             </div>
         )
