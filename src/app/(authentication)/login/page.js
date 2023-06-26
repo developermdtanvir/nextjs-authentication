@@ -1,15 +1,12 @@
 'use client'
 
-import { signIn, useSession } from 'next-auth/react'
-import { useRouter } from "next/navigation"
+import { signIn } from 'next-auth/react'
 import { useState } from "react"
 import { toast } from "react-hot-toast"
 
 
 
 export default function Login() {
-    const session = useSession()
-    const router = useRouter()
     const [data, setData] = useState({
         email: '',
         password: ''
@@ -34,7 +31,7 @@ export default function Login() {
                 }
 
                 if (callback?.ok && !callback?.error) {
-                    toast.success('Logged in successfully!')
+                    toast.success('Loggid in successfully!');
                 }
             })
     }
@@ -54,9 +51,9 @@ export default function Login() {
                 </div>
 
                 <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                    <form className="space-y-6" onSubmit={loginUser}>
+                    <form className="space-y-6 form-control" onSubmit={loginUser}>
                         <div>
-                            <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
+                            <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900 label">
                                 Email address
                             </label>
                             <div className="mt-2">
@@ -68,7 +65,7 @@ export default function Login() {
                                     value={data.email}
                                     onChange={e => setData({ ...data, email: e.target.value })}
                                     required
-                                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 input"
                                 />
                             </div>
                         </div>
@@ -93,7 +90,7 @@ export default function Login() {
                                     required
                                     value={data.password}
                                     onChange={e => setData({ ...data, password: e.target.value })}
-                                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 input"
                                 />
                             </div>
                         </div>
@@ -101,16 +98,16 @@ export default function Login() {
                         <div>
                             <button
                                 type="submit"
-                                className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                                className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 btn"
                             >
                                 Sign in
                             </button>
                         </div>
                     </form>
-                    <h1>Sign into Github below</h1>
-                    <button onClick={() => signIn('github')} className="bg-black text-white w-full">Sign In</button>
+                    <h1 >Sign into Github below</h1>
+                    <button onClick={() => signIn('github')} className="bg-black text-white w-full btn">Sign In with Github</button>
                     <h1>Sign into Google below</h1>
-                    <button onClick={() => signIn('google')} className="bg-red-500 text-white w-full">Sign In</button>
+                    <button onClick={() => signIn('google')} className="bg-red-500 text-white w-full btn">Sign In with Google</button>
 
                     <p className="mt-10 text-center text-sm text-gray-500">
                         Not a member?{' '}

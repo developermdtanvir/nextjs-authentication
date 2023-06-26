@@ -5,7 +5,7 @@ export const User = () => {
     return (
         <div>
             <h1>Client side rendaring</h1>
-            <pre>{JSON.stringify(data)}</pre>
+            <h1>{JSON.stringify(data)}</h1>
         </div>
     )
 }
